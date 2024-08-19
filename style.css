@@ -1,13 +1,14 @@
-
-
-
 :root {
-    --cor-de-fundo: #EBECEE;
+    --cor-de-fundo: #ea9acb;
     --branco: #FFFFFF;
-    --laranja: #EB9B00;
-    --azul-degrade: linear-gradient(97.54deg, #002F52 35.49%,#326589 165.37%);
-    --fonte-principal: "poppins";
-    --azul: #002F52;
+    --laranja: #af3f84;
+    --azul-degrade: linear-gradient(97.54deg, #93e0e0 35.49%, #12cae2 165.37%);
+    --fonte-principal: "Poppins";
+    --azul: #0fc2c2;
+    --fonte-secundario: "Josefin Sans";
+    --preto: #000000;
+    --cinza: #474646;
+    --cinza-claro: #858585;
 }
 
 body {
@@ -16,182 +17,179 @@ body {
     font-size: 16px;
     font-weight: 400;
 }
+
 .cabecalho__menu-hamburguer {
-    width: 24px;
+    width: 24px ;
     height: 24px;
-    display: inline-bock;
-    background-image: url("../img/menu.svg");
+    background-image: url("../img/Menu.svg");
     background-repeat: no-repeat;
     background-position: center;
+    display: inline-block;
+}
+
+.container__botao:checked~.container__rotulo>.cabecalho__menu-hamburguer {
+    background-image: url("../img/Menu Aberto.svg");
+}
+
+.container__botao:checked~.container__rotulo {
+    background: var(--azul-degrade);
 }
 
 .cabecalho {
     background-color: var(--branco);
-    display:flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
 }
 
-.container{
+.container {
     display: flex;
     align-items: center;
 }
 
-.container_imagem {
+.container__imagem {
     padding: 1em;
+    width: 13%;
 }
 
 .lista-menu {
     display: none;
     position: absolute;
     top: 100%;
-    width: 60%vw;
+    width: 60vw;
 }
 
-.container_botao:checked ~ .lista-menu {
+.container__botao:checked~.lista-menu {
     display: block;
 }
 
-.lista-menu_titulo,
-.lista-menu_item {
+.lista-menu__titulo,
+.lista-menu__item {
     padding: 1em;
     background-color: var(--branco);
 }
 
-.lista-menu_titulo{
+.lista-menu__titulo {
     color: var(--laranja);
     font-weight: 700;
 }
 
-.lista-menu_link {
+.lista-menu__link {
     background: var(--azul-degrade);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-transform:uppercase;
-}
-
-.container_botao {
-    display:none;
-}
-
-.banner {
-    background: var(--azul-degrade);
-    color: var(--branco);
-    text-align: center;
-    padding: 2.5em 2em;
-}
-
-.banner_titulo{
-    font-size: 18px;
-    font-weight: 700;
-}
-
-.banner_texto:{
-    font-weight: 500;
-    margin: 1em 0;
-}
-
-.banner_pesquisa{
-    background-color: transparent;
-    border: 1px solid var(--branco);
-    color: var(--branco);
-    border-radius: 24px;
-    padding: 1em;
-    width: 100%;
-}
-
-.banner_pesquisa::placeholder{
-    font-family: var(--fonte-principal);
-    font-size: 14px;
-    font-weight: 400;
-    text-align: center;
-    color:var(--branco);
-    background: url("../img/lupa.svg") no-repeat;
-    background-position: 1em;
-}
-.carrossel_titulo {
-    color: var(--laranja);
-    background-color: var(--branco);
-    text-align:center;
     text-transform: uppercase;
-    font-size: 18px;
-    font-weight: 700;
-    padding: 1em 0 0.5em 0;
 }
 
-.swiper-slide img {
-    width: 100;
-}
-
-
-.swiper-button-prev,
-.swiper-button-next {
+.container__botao {
     display: none;
 }
 
-
-.swiper pagination {
-    position: initial;
-    margin: .5em 0;
+.container__titulo {
+    display: none;
 }
 
-.card {
-    background: var(--branco);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0.25);
-    border-radius:10px;
-    margin: 1em;
-    padding:1em;
+.opcoes {
+    display: none;
 }
 
-.card_descricao {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.5em;
+.container__texto {
+    display: none;
+}
+
+@media screen and (min-width: 1024px) {
+
+    .container__titulo,
+    .container__titulo--negrito {
+        font-family: var(--fonte-secundario);
+        font-size: 30px;
+    }
+
+    .container__titulo {
+        font-weight: 400;
+        display: block;
+    }
+
+    .container__titulo--negrito {
+        font-weight: 700;
+    }
+
+    .opcoes {
+        display: flex;
+    }
+
+    .opcoes__item {
+        padding: 0 1em;
+        text-transform: uppercase;
+    }
+
+    .opcoes__link {
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .container__imagem-transparente {
+        display: none;
+    }
+
+    .cabecalho__menu-hamburguer {
+        display: none;
+    }
+
+    .opcoes__botao:checked~.lista-menu {
+        display: block;
+        width: auto;
+    }
+
+    .opcoes__botao {
+        display: none;
+    }
+
+    .opcoes__botao:checked~.opcoes__rotulo>.opcoes__item {
+        background: var(--azul-degrade);
+        color: var(--branco);
+    }
+
+    .opcoes__item {
+        padding: 2em 1em;
+    }
+
+    .lista-menu__item:hover {
+        background: var(--azul-degrade);
+    }
+
+    .lista-menu__item:hover>.lista-menu__link {
+        -webkit-text-fill-color: var(--branco);
+        text-decoration: none;
+    }
 
 }
 
-.card_botoes {
-    display:flex;
-    justify-content: space-between;
+@media screen and (min-width: 1728px) {
+    .container__link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .cabecalho {
+        padding: 0 2em;
+    }
+
+    .opcoes {
+        margin-right: auto;
+    }
+
+    .container__texto {
+        display: block;
+    }
 }
 
-.botoes {
-    display:flex;
-}
 
-
-.descricao_titulo {
-    color:var(--laranja);
-    font-weight: 700;
-}
-
-.descricao_titulo-livro {
-    color:var(--azul);
-    font-size: 18px;
-    font-weight: 700;
-    margin: 0.5em 0;
-}
-
-.descricao_texto {
-    font-size: 14px;
-}
-
-.botoes_ancora {
-    background-color: var(--laranja);
-    padding:1em 2.2em;
-    color:var(--branco);
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.botoes_item{
-    margin: 0 0.5em;
-}
-.topicos {
-    background: var(--azul-degrade);
-    text-align: center;
+.banner {
     background: var(--azul-degrade);
     color: var(--branco);
     text-align: center;
