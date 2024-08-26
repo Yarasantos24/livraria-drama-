@@ -167,7 +167,7 @@ body {
 
 }
 
-@media screen and (min-width: 1702px) {
+@media screen and (min-width: 172px) {
     .container__link {
         display: flex;
         align-items: center;
@@ -197,7 +197,7 @@ body {
 }
 
 .banner__titulo {
-    font-size: 19px;
+    font-size: 18px;
     font-weight: 700;
 }
 
@@ -493,3 +493,8 @@ hr {
         padding: 3em 30vw;
     }
 }
+
+.soft{
+ width: 30%;
+}
+    
